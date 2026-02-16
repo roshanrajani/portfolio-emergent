@@ -227,34 +227,34 @@ const AboutSection = () => {
         <div className="about-grid">
           <div className="about-content">
             <p className="about-text">
-              Lead Software Engineer with over <strong>seven years of experience</strong> in developing 
-              and leading key projects at top financial institutions including <span className="highlight">Transamerica</span> and 
-              <span className="highlight"> Wells Fargo</span>. I specialize in Angular and HTML5, with a strong focus on 
-              creating innovative frontend solutions that align with business objectives.
+              Senior UI Developer with over <strong>seven years of experience</strong> crafting 
+              exceptional user interfaces at leading companies including <span className="highlight">Transamerica</span> and 
+              <span className="highlight"> Wells Fargo</span>. I specialize in Angular, React, and modern CSS, with a passion for 
+              creating visually stunning and highly performant web applications.
             </p>
             <p className="about-text">
-              My experience spans the entire software development lifecycle, from conceptualization to deployment. 
-              I possess a robust understanding of programming within the <strong>financial domain</strong>, which allows 
-              me to bridge the gap between complex business requirements and technical implementation.
+              My expertise spans the entire frontend spectrum — from responsive layouts and micro-animations 
+              to complex state management and design system architecture. I believe that <strong>great UI is invisible</strong>; 
+              it just works, delights, and gets out of the user's way.
             </p>
             <p className="about-text">
-              I'm passionate about driving forward-thinking software solutions and have a proven track record 
-              of delivering projects <span className="highlight-gold">ahead of schedule</span> and <span className="highlight-gold">under budget</span>.
+              I thrive on turning Figma designs into pixel-perfect reality, optimizing performance to the millisecond, 
+              and building <span className="highlight-gold">accessible, beautiful interfaces</span> that users love.
             </p>
           </div>
 
           <div className="about-image-container">
             <div className="about-image-frame">
               <img 
-                src="https://images.unsplash.com/photo-1722159475082-0a2331580de3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2OTV8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjB3b3Jrc3BhY2V8ZW58MHx8fHwxNzcxMjU2ODQzfDA&ixlib=rb-4.1.0&q=85&w=600" 
-                alt="Professional workspace"
+                src="https://customer-assets.emergentagent.com/job_1193c30f-0605-40da-bfaf-09b9bd9195d1/artifacts/6k4wph2h_125B8FC8-0A58-4466-AFD1-FC004575DCC3.jpeg" 
+                alt="Rosh Raj"
                 className="about-image"
               />
               <div className="image-overlay"></div>
             </div>
             <div className="floating-badge">
               <Star className="badge-star" size={20} />
-              <span>Top Performer</span>
+              <span>UI Specialist</span>
             </div>
           </div>
         </div>
