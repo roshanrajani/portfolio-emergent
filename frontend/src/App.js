@@ -45,9 +45,9 @@ const careerGrowthData = [
 
 // Project Impact Data
 const projectImpactData = [
-  { metric: "AUM Managed", value: 5.7, unit: "B", color: "#10b981" },
-  { metric: "Cost Savings", value: 12, unit: "M", color: "#f59e0b" },
-  { metric: "Budget Saved", value: 600, unit: "K", color: "#6366f1" },
+  { metric: "Users Reached", value: 5, unit: "M+", color: "#10b981" },
+  { metric: "Components Built", value: 50, unit: "+", color: "#f59e0b" },
+  { metric: "Performance Score", value: 98, unit: "/100", color: "#6366f1" },
 ];
 
 // Animated Counter Hook
