@@ -161,11 +161,10 @@ const HeroSection = () => {
         <div className="hero-stats" data-testid="hero-stats">
           <div className="stat-card" ref={aumCounter.ref}>
             <div className="stat-value">
-              <span className="stat-prefix">$</span>
               {aumCounter.count.toFixed(1)}
-              <span className="stat-suffix">B</span>
+              <span className="stat-suffix">M+</span>
             </div>
-            <div className="stat-label">Platform AUM Managed</div>
+            <div className="stat-label">Users Impacted</div>
             <div className="stat-bar">
               <div className="stat-bar-fill emerald"></div>
             </div>
@@ -173,11 +172,10 @@ const HeroSection = () => {
           
           <div className="stat-card" ref={savingsCounter.ref}>
             <div className="stat-value">
-              <span className="stat-prefix">$</span>
               {savingsCounter.count}
-              <span className="stat-suffix">M</span>
+              <span className="stat-suffix">+</span>
             </div>
-            <div className="stat-label">Cost Savings Delivered</div>
+            <div className="stat-label">Projects Delivered</div>
             <div className="stat-bar">
               <div className="stat-bar-fill gold"></div>
             </div>
@@ -188,7 +186,7 @@ const HeroSection = () => {
               {yearsCounter.count}
               <span className="stat-suffix">+</span>
             </div>
-            <div className="stat-label">Years of Experience</div>
+            <div className="stat-label">Years of UI Craft</div>
             <div className="stat-bar">
               <div className="stat-bar-fill indigo"></div>
             </div>
