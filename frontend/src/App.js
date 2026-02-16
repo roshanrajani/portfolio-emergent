@@ -134,20 +134,28 @@ const HeroSection = () => {
       </nav>
 
       <div className="hero-content">
+        <div className="hero-profile-image">
+          <img 
+            src="https://customer-assets.emergentagent.com/job_1193c30f-0605-40da-bfaf-09b9bd9195d1/artifacts/ve5f0wsp_A5EC1D3B-C46F-4FCE-9758-9C9E045431BB.jpeg" 
+            alt="Rosh Raj"
+            className="profile-photo"
+          />
+        </div>
+        
         <div className="hero-badge">
           <Award className="badge-icon" size={16} />
-          <span>STAR Award Winner • Outstanding Performance</span>
+          <span>STAR Award Winner • UI Excellence</span>
         </div>
         
         <h1 className="hero-title">
-          Building <span className="gradient-text">Financial Software</span>
-          <br />Solutions
+          Crafting <span className="gradient-text">Beautiful User</span>
+          <br />Experiences
         </h1>
         
         <p className="hero-subtitle">
-          Lead Software Engineer with 7+ years of expertise in Angular and frontend development, 
-          specializing in financial technology. Proven track record of delivering enterprise 
-          solutions that drive measurable business impact.
+          Senior UI Developer with 7+ years of expertise creating pixel-perfect interfaces, 
+          seamless animations, and intuitive user experiences. Passionate about turning 
+          complex requirements into elegant, performant frontend solutions.
         </p>
 
         <div className="hero-stats" data-testid="hero-stats">
