@@ -1,14 +1,5 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
-<<<<<<< HEAD
-  {
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
-    ],
-    "buildCommand": "yarn build",
-    "outputDirectory": "build"
-  }
-  "outputDirectory": "build"
+  ]
 }
->>>>>>> images-added
