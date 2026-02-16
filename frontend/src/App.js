@@ -269,7 +269,7 @@ const SkillsSection = () => {
   const [activeTab, setActiveTab] = useState('radar');
 
   const frontendSkills = skillsBarData.filter(s => s.category === 'Frontend');
-  const backendSkills = skillsBarData.filter(s => s.category === 'Backend');
+  const stylingSkills = skillsBarData.filter(s => s.category === 'Styling');
 
   return (
     <section id="skills" className={`skills-section ${isVisible ? 'visible' : ''}`} ref={ref} data-testid="skills-section">
