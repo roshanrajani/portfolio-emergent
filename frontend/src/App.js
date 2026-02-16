@@ -2,13 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import "@/App.css";
 import { 
   Mail, MapPin, Linkedin, ExternalLink, Award, TrendingUp, 
-  Calendar, Building2, GraduationCap, Code2, Database, 
-  GitBranch, Layers, ChevronDown, Send, Briefcase, Star
+  Calendar, Building2, GraduationCap, Code2, 
+  GitBranch, Layers, ChevronDown, Send, Briefcase, Star,
+  Menu, X, Sparkles
 } from "lucide-react";
 import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
-  AreaChart, Area, Cell, LineChart, Line
+  AreaChart, Area, Cell
 } from "recharts";
 
 // Skills Data for Charts
