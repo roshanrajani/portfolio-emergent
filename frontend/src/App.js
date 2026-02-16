@@ -14,23 +14,23 @@ import {
 // Skills Data for Charts
 const skillsRadarData = [
   { skill: "Angular", level: 95, fullMark: 100 },
+  { skill: "React", level: 90, fullMark: 100 },
+  { skill: "CSS/SCSS", level: 95, fullMark: 100 },
   { skill: "TypeScript", level: 92, fullMark: 100 },
-  { skill: "React", level: 88, fullMark: 100 },
-  { skill: "Node.js", level: 82, fullMark: 100 },
-  { skill: "MongoDB", level: 78, fullMark: 100 },
-  { skill: "REST APIs", level: 90, fullMark: 100 },
+  { skill: "Animations", level: 88, fullMark: 100 },
+  { skill: "UI/UX", level: 90, fullMark: 100 },
 ];
 
 const skillsBarData = [
   { name: "Angular", level: 95, category: "Frontend" },
-  { name: "HTML5/CSS3", level: 94, category: "Frontend" },
+  { name: "React", level: 90, category: "Frontend" },
+  { name: "CSS/SCSS", level: 95, category: "Frontend" },
   { name: "TypeScript", level: 92, category: "Frontend" },
-  { name: "SASS/SCSS", level: 90, category: "Frontend" },
-  { name: "React", level: 88, category: "Frontend" },
-  { name: "JavaScript", level: 93, category: "Frontend" },
-  { name: "REST APIs", level: 90, category: "Backend" },
-  { name: "Node.js", level: 82, category: "Backend" },
-  { name: "MongoDB", level: 78, category: "Backend" },
+  { name: "JavaScript", level: 94, category: "Frontend" },
+  { name: "HTML5", level: 98, category: "Frontend" },
+  { name: "Tailwind", level: 88, category: "Styling" },
+  { name: "Animations", level: 85, category: "Styling" },
+  { name: "Figma", level: 80, category: "Styling" },
 ];
 
 // Career Growth Data
