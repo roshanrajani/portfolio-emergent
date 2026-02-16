@@ -389,12 +389,12 @@ const ExperienceSection = () => {
 
   const experiences = [
     {
-      role: "Lead Software Engineer",
+      role: "Lead UI Developer",
       company: "Transamerica",
       period: "April 2023 - Present",
       location: "New Jersey, United States",
       current: true,
-      description: "Leading frontend development initiatives for financial services platform.",
+      description: "Leading UI/UX development for enterprise financial platform, building design systems and mentoring junior developers.",
       achievements: ["5M+ Users Dashboard", "Design System Lead", "98 Performance Score"]
     },
     {
