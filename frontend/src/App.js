@@ -111,7 +111,7 @@ const useSectionReveal = () => {
 
 // Hero Section
 const HeroSection = () => {
-  const aumCounter = useCountUp(5.7, 2500);
+  const aumCounter = useCountUp(5.7, 2500, 0, 1); // Added decimals=1 for 5.7
   const savingsCounter = useCountUp(12, 2500);
   const yearsCounter = useCountUp(7, 2000);
 
