@@ -112,52 +112,84 @@ const useSectionReveal = () => {
 
 // Hero Section
 const HeroSection = () => {
-  const aumCounter = useCountUp(5.7, 2500, 0, 1); // Added decimals=1 for 5.7
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const aumCounter = useCountUp(5.7, 2500, 0, 1);
   const savingsCounter = useCountUp(12, 2500);
   const yearsCounter = useCountUp(7, 2000);
 
   return (
     <section className="hero-section" data-testid="hero-section">
+      {/* Background Image - Your Suit Photo */}
+      <div className="hero-bg-image">
+        <img 
+          src="https://customer-assets.emergentagent.com/job_1193c30f-0605-40da-bfaf-09b9bd9195d1/artifacts/ve5f0wsp_A5EC1D3B-C46F-4FCE-9758-9C9E045431BB.jpeg" 
+          alt=""
+          className="hero-bg-photo"
+        />
+      </div>
       <div className="hero-particles"></div>
       <div className="hero-gradient"></div>
+      <div className="hero-star-overlay"></div>
       
+      {/* Navigation */}
       <nav className="nav-bar" data-testid="navigation">
         <div className="nav-logo">
+          <Sparkles className="logo-icon" size={20} />
           <span className="logo-text">RR</span>
         </div>
-        <div className="nav-links">
+        
+        {/* Desktop Nav */}
+        <div className="nav-links desktop-nav">
           <a href="#about" className="nav-link">About</a>
           <a href="#skills" className="nav-link">Skills</a>
           <a href="#experience" className="nav-link">Experience</a>
           <a href="#projects" className="nav-link">Projects</a>
           <a href="#contact" className="nav-link nav-link-cta">Get in Touch</a>
         </div>
+        
+        {/* Mobile Menu Button */}
+        <button 
+          className="mobile-menu-btn"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          data-testid="mobile-menu-btn"
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </nav>
+      
+      {/* Mobile Nav */}
+      <div className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}>
+        <a href="#about" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>About</a>
+        <a href="#skills" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Skills</a>
+        <a href="#experience" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Experience</a>
+        <a href="#projects" className="mobile-nav-link" onClick={() => setMobileMenuOpen(false)}>Projects</a>
+        <a href="#contact" className="mobile-nav-link cta" onClick={() => setMobileMenuOpen(false)}>Get in Touch</a>
+      </div>
 
       <div className="hero-content">
-        <div className="hero-profile-image">
-          <img 
-            src="https://customer-assets.emergentagent.com/job_1193c30f-0605-40da-bfaf-09b9bd9195d1/artifacts/ve5f0wsp_A5EC1D3B-C46F-4FCE-9758-9C9E045431BB.jpeg" 
-            alt="Rosh Raj"
-            className="profile-photo"
-          />
+        {/* Star Badge */}
+        <div className="hero-star-badge">
+          <div className="star-icon-wrapper">
+            <Star className="star-icon" size={24} fill="#f59e0b" />
+          </div>
+          <span>STAR PERFORMER</span>
         </div>
         
         <div className="hero-badge">
           <Award className="badge-icon" size={16} />
-          <span>STAR Award Winner • UI Excellence</span>
+          <span>Award Winner • UI Excellence</span>
         </div>
         
         <h1 className="hero-title">
-          Crafting <span className="gradient-text">Beautiful User</span>
-          <br />
-          Experiences
+          <span className="hero-name">Rosh Raj</span>
+          <span className="hero-role">
+            Crafting <span className="gradient-text">Beautiful</span> Experiences
+          </span>
         </h1>
         
         <p className="hero-subtitle">
           Senior UI Developer with 7+ years of expertise creating pixel-perfect interfaces, 
-          seamless animations, and intuitive user experiences. Passionate about turning 
-          complex requirements into elegant, performant frontend solutions.
+          seamless animations, and intuitive user experiences.
         </p>
 
         <div className="hero-stats" data-testid="hero-stats">
