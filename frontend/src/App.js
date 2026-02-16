@@ -82,7 +82,7 @@ const useCountUp = (end, duration = 2000, start = 0, decimals = 0) => {
       if (progress < 1) requestAnimationFrame(animate);
     };
     requestAnimationFrame(animate);
-  }, [isVisible, end, duration, start]);
+  }, [isVisible, end, duration, start, decimals]);
 
   return { count, ref };
 };
