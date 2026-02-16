@@ -14,23 +14,23 @@ import {
 // Skills Data for Charts
 const skillsRadarData = [
   { skill: "Angular", level: 95, fullMark: 100 },
+  { skill: "React", level: 90, fullMark: 100 },
+  { skill: "CSS/SCSS", level: 95, fullMark: 100 },
   { skill: "TypeScript", level: 92, fullMark: 100 },
-  { skill: "React", level: 88, fullMark: 100 },
-  { skill: "Node.js", level: 82, fullMark: 100 },
-  { skill: "MongoDB", level: 78, fullMark: 100 },
-  { skill: "REST APIs", level: 90, fullMark: 100 },
+  { skill: "Animations", level: 88, fullMark: 100 },
+  { skill: "UI/UX", level: 90, fullMark: 100 },
 ];
 
 const skillsBarData = [
   { name: "Angular", level: 95, category: "Frontend" },
-  { name: "HTML5/CSS3", level: 94, category: "Frontend" },
+  { name: "React", level: 90, category: "Frontend" },
+  { name: "CSS/SCSS", level: 95, category: "Frontend" },
   { name: "TypeScript", level: 92, category: "Frontend" },
-  { name: "SASS/SCSS", level: 90, category: "Frontend" },
-  { name: "React", level: 88, category: "Frontend" },
-  { name: "JavaScript", level: 93, category: "Frontend" },
-  { name: "REST APIs", level: 90, category: "Backend" },
-  { name: "Node.js", level: 82, category: "Backend" },
-  { name: "MongoDB", level: 78, category: "Backend" },
+  { name: "JavaScript", level: 94, category: "Frontend" },
+  { name: "HTML5", level: 98, category: "Frontend" },
+  { name: "Tailwind", level: 88, category: "Styling" },
+  { name: "Animations", level: 85, category: "Styling" },
+  { name: "Figma", level: 80, category: "Styling" },
 ];
 
 // Career Growth Data
@@ -45,9 +45,9 @@ const careerGrowthData = [
 
 // Project Impact Data
 const projectImpactData = [
-  { metric: "AUM Managed", value: 5.7, unit: "B", color: "#10b981" },
-  { metric: "Cost Savings", value: 12, unit: "M", color: "#f59e0b" },
-  { metric: "Budget Saved", value: 600, unit: "K", color: "#6366f1" },
+  { metric: "Users Reached", value: 5, unit: "M+", color: "#38bdf8" }, // blue
+  { metric: "Components Built", value: 50, unit: "+", color: "#f59e0b" }, // orange
+  { metric: "Performance Score", value: 98, unit: "/100", color: "#a21caf" }, // purple
 ];
 
 // Animated Counter Hook
@@ -117,12 +117,12 @@ const HeroSection = () => {
 
   return (
     <section className="hero-section" data-testid="hero-section">
+      {/* Background Image only, no overlay, no profile image */}
+      <div className="hero-bg no-blur" style={{ backgroundImage: "url(assets/roshan3.jpeg)" }} />
       <div className="hero-particles"></div>
-      <div className="hero-gradient"></div>
-      
       <nav className="nav-bar" data-testid="navigation">
         <div className="nav-logo">
-          <span className="logo-text">RR</span>
+          <span className="logo-text">Roshan Rajani</span>
         </div>
         <div className="nav-links">
           <a href="#about" className="nav-link">About</a>
@@ -133,66 +133,51 @@ const HeroSection = () => {
         </div>
       </nav>
 
-      <div className="hero-content">
-        <div className="hero-badge">
+      <div className="hero-content no-bg">
+        {/* Profile image removed for full background visibility */}
+        <div className="hero-badge no-bg-badge">
           <Award className="badge-icon" size={16} />
-          <span>STAR Award Winner • Outstanding Performance</span>
+          <span>STAR Award Winner • UI Excellence</span>
         </div>
-        
-        <h1 className="hero-title">
-          Building <span className="gradient-text">Financial Software</span>
-          <br />Solutions
+        <h1 className="hero-title no-bg-title">
+          Crafting <span className="gradient-text">Beautiful User</span>
+          <br />
+          Experiences
         </h1>
-        
-        <p className="hero-subtitle">
-          Lead Software Engineer with 7+ years of expertise in Angular and frontend development, 
-          specializing in financial technology. Proven track record of delivering enterprise 
-          solutions that drive measurable business impact.
+        <p className="hero-subtitle no-bg-subtitle">
+          Senior UI Developer with 7+ years of expertise creating pixel-perfect interfaces, 
+          seamless animations, and intuitive user experiences. Passionate about turning 
+          complex requirements into elegant, performant frontend solutions.
         </p>
-
-        <div className="hero-stats" data-testid="hero-stats">
-          <div className="stat-card" ref={aumCounter.ref}>
-            <div className="stat-value">
-              <span className="stat-prefix">$</span>
+        <div className="hero-stats no-bg-stats" data-testid="hero-stats">
+          <div className="stat-card no-bg-stat" ref={aumCounter.ref}>
+            <div className="stat-value no-bg-value">
               {aumCounter.count.toFixed(1)}
-              <span className="stat-suffix">B</span>
+              <span className="stat-suffix">M+</span>
             </div>
-            <div className="stat-label">Platform AUM Managed</div>
-            <div className="stat-bar">
-              <div className="stat-bar-fill emerald"></div>
-            </div>
+            <div className="stat-label no-bg-label">Users Impacted</div>
           </div>
-          
-          <div className="stat-card" ref={savingsCounter.ref}>
-            <div className="stat-value">
-              <span className="stat-prefix">$</span>
+          <div className="stat-card no-bg-stat" ref={savingsCounter.ref}>
+            <div className="stat-value no-bg-value">
               {savingsCounter.count}
-              <span className="stat-suffix">M</span>
+              <span className="stat-suffix">+</span>
             </div>
-            <div className="stat-label">Cost Savings Delivered</div>
-            <div className="stat-bar">
-              <div className="stat-bar-fill gold"></div>
-            </div>
+            <div className="stat-label no-bg-label">Projects Delivered</div>
           </div>
-          
-          <div className="stat-card" ref={yearsCounter.ref}>
-            <div className="stat-value">
+          <div className="stat-card no-bg-stat" ref={yearsCounter.ref}>
+            <div className="stat-value no-bg-value">
               {yearsCounter.count}
               <span className="stat-suffix">+</span>
             </div>
-            <div className="stat-label">Years of Experience</div>
-            <div className="stat-bar">
-              <div className="stat-bar-fill indigo"></div>
-            </div>
+            <div className="stat-label no-bg-label">Years of UI Craft</div>
           </div>
         </div>
-
-        <div className="hero-buttons">
-          <a href="#projects" className="btn-primary" data-testid="view-projects-btn">
+        <div className="hero-buttons no-bg-buttons">
+          <a href="#projects" className="btn-primary no-bg-btn" data-testid="view-projects-btn">
             <Briefcase size={18} />
             View Projects
           </a>
-          <a href="#contact" className="btn-secondary" data-testid="contact-btn">
+          <a href="#contact" className="btn-secondary no-bg-btn" data-testid="contact-btn">
             <Mail size={18} />
             Get in Touch
           </a>
@@ -221,34 +206,34 @@ const AboutSection = () => {
         <div className="about-grid">
           <div className="about-content">
             <p className="about-text">
-              Lead Software Engineer with over <strong>seven years of experience</strong> in developing 
-              and leading key projects at top financial institutions including <span className="highlight">Transamerica</span> and 
-              <span className="highlight"> Wells Fargo</span>. I specialize in Angular and HTML5, with a strong focus on 
-              creating innovative frontend solutions that align with business objectives.
+              Senior UI Developer with over <strong>seven years of experience</strong> crafting 
+              exceptional user interfaces at leading companies including <span className="highlight">Transamerica</span> and 
+              <span className="highlight"> Wells Fargo</span>. I specialize in Angular, React, and modern CSS, with a passion for 
+              creating visually stunning and highly performant web applications.
             </p>
             <p className="about-text">
-              My experience spans the entire software development lifecycle, from conceptualization to deployment. 
-              I possess a robust understanding of programming within the <strong>financial domain</strong>, which allows 
-              me to bridge the gap between complex business requirements and technical implementation.
+              My expertise spans the entire frontend spectrum — from responsive layouts and micro-animations 
+              to complex state management and design system architecture. I believe that <strong>great UI is invisible</strong>; 
+              it just works, delights, and gets out of the user's way.
             </p>
             <p className="about-text">
-              I'm passionate about driving forward-thinking software solutions and have a proven track record 
-              of delivering projects <span className="highlight-gold">ahead of schedule</span> and <span className="highlight-gold">under budget</span>.
+              I thrive on turning Figma designs into pixel-perfect reality, optimizing performance to the millisecond, 
+              and building <span className="highlight-gold">accessible, beautiful interfaces</span> that users love.
             </p>
           </div>
 
           <div className="about-image-container">
             <div className="about-image-frame">
               <img 
-                src="https://images.unsplash.com/photo-1722159475082-0a2331580de3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2OTV8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjB3b3Jrc3BhY2V8ZW58MHx8fHwxNzcxMjU2ODQzfDA&ixlib=rb-4.1.0&q=85&w=600" 
-                alt="Professional workspace"
+                src= "assets/roshan3.jpeg"
+                alt="Rosh Raj"
                 className="about-image"
               />
               <div className="image-overlay"></div>
             </div>
             <div className="floating-badge">
               <Star className="badge-star" size={20} />
-              <span>Top Performer</span>
+              <span>UI Specialist</span>
             </div>
           </div>
         </div>
@@ -263,7 +248,7 @@ const SkillsSection = () => {
   const [activeTab, setActiveTab] = useState('radar');
 
   const frontendSkills = skillsBarData.filter(s => s.category === 'Frontend');
-  const backendSkills = skillsBarData.filter(s => s.category === 'Backend');
+  const stylingSkills = skillsBarData.filter(s => s.category === 'Styling');
 
   return (
     <section id="skills" className={`skills-section ${isVisible ? 'visible' : ''}`} ref={ref} data-testid="skills-section">
@@ -305,8 +290,8 @@ const SkillsSection = () => {
                   <Radar
                     name="Skill Level"
                     dataKey="level"
-                    stroke="#10b981"
-                    fill="#10b981"
+                    stroke="#38bdf8"
+                    fill="#a21caf"
                     fillOpacity={0.3}
                     strokeWidth={2}
                   />
@@ -335,9 +320,9 @@ const SkillsSection = () => {
               </div>
               
               <div className="bar-chart-section">
-                <h3 className="chart-subtitle"><Database size={18} /> Backend</h3>
+                <h3 className="chart-subtitle"><Layers size={18} /> Styling & Design</h3>
                 <ResponsiveContainer width="100%" height={180}>
-                  <BarChart data={backendSkills} layout="vertical">
+                  <BarChart data={stylingSkills} layout="vertical">
                     <XAxis type="number" domain={[0, 100]} tick={{ fill: '#64748b' }} />
                     <YAxis type="category" dataKey="name" tick={{ fill: '#94a3b8', fontSize: 11 }} width={80} />
                     <Tooltip 
@@ -345,8 +330,8 @@ const SkillsSection = () => {
                       labelStyle={{ color: '#f8fafc' }}
                     />
                     <Bar dataKey="level" radius={[0, 4, 4, 0]}>
-                      {backendSkills.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={`hsl(${40 + index * 15}, 80%, 50%)`} />
+                      {stylingSkills.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={`hsl(${280 + index * 20}, 70%, 55%)`} />
                       ))}
                     </Bar>
                   </BarChart>
@@ -359,11 +344,11 @@ const SkillsSection = () => {
         <div className="skills-grid">
           {[
             { icon: <Layers />, name: "Angular", type: "Frontend" },
-            { icon: <Code2 />, name: "TypeScript", type: "Frontend" },
             { icon: <Code2 />, name: "React", type: "Frontend" },
-            { icon: <Database />, name: "MongoDB", type: "Backend" },
+            { icon: <Code2 />, name: "CSS/SCSS", type: "Styling" },
+            { icon: <Layers />, name: "Tailwind", type: "Styling" },
             { icon: <GitBranch />, name: "Git", type: "Tools" },
-            { icon: <TrendingUp />, name: "Financial Services", type: "Domain" },
+            { icon: <TrendingUp />, name: "UI/UX Design", type: "Design" },
           ].map((skill, i) => (
             <div key={i} className="skill-card" style={{ animationDelay: `${i * 0.1}s` }}>
               <div className="skill-icon">{skill.icon}</div>
@@ -383,49 +368,49 @@ const ExperienceSection = () => {
 
   const experiences = [
     {
-      role: "Lead Software Engineer",
+      role: "Lead UI Developer",
       company: "Transamerica",
       period: "April 2023 - Present",
       location: "New Jersey, United States",
       current: true,
-      description: "Leading frontend development initiatives for financial services platform.",
-      achievements: ["$5.7B AUM Platform", "Quarter Ahead of Schedule", "$600K Under Budget"]
+      description: "Leading UI/UX development for enterprise financial platform, building design systems and mentoring junior developers.",
+      achievements: ["5M+ Users Dashboard", "Design System Lead", "98 Performance Score"]
     },
     {
-      role: "Lead Software Engineer",
+      role: "Senior UI Developer",
       company: "Wells Fargo",
       period: "September 2022 - April 2023",
       location: "New York, United States",
-      description: "Led software engineering projects in the financial domain.",
-      achievements: ["$12M Cost Savings", "Enterprise Architecture"]
+      description: "Led UI development for customer-facing banking applications with focus on accessibility.",
+      achievements: ["WCAG 2.1 AA Compliance", "Component Library"]
     },
     {
       role: "Senior Frontend Developer",
       company: "Transamerica",
       period: "March 2021 - August 2022",
       location: "New Jersey, United States",
-      description: "Developed and maintained enterprise-level frontend applications."
+      description: "Built responsive interfaces and interactive data visualizations for enterprise dashboards."
     },
     {
       role: "Angular Developer",
       company: "IBM",
       period: "January 2021 - March 2021",
       location: "New York Area",
-      description: "Specialized in Angular development for enterprise solutions."
+      description: "Developed enterprise UI components and contributed to design system documentation."
     },
     {
       role: "Frontend Developer",
       company: "Paychex",
       period: "March 2018 - December 2020",
       location: "Rochester, New York",
-      description: "Built and maintained frontend features for payroll and HR solutions."
+      description: "Created pixel-perfect UI implementations and smooth micro-animations for HR platform."
     },
     {
-      role: "IT Analyst",
+      role: "UI Developer",
       company: "Serco",
       period: "September 2014 - December 2015",
       location: "Hyderabad, India",
-      description: "Provided technical analysis and support for IT systems."
+      description: "Started career building responsive web interfaces and learning modern CSS techniques."
     }
   ];
 
@@ -444,8 +429,9 @@ const ExperienceSection = () => {
             <AreaChart data={careerGrowthData}>
               <defs>
                 <linearGradient id="careerGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.4}/>
-                  <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+                  <stop offset="5%" stopColor="#38bdf8" stopOpacity={0.4}/>
+                  <stop offset="50%" stopColor="#a21caf" stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
                 </linearGradient>
               </defs>
               <XAxis dataKey="year" tick={{ fill: '#64748b', fontSize: 11 }} />
@@ -457,7 +443,7 @@ const ExperienceSection = () => {
               <Area 
                 type="monotone" 
                 dataKey="level" 
-                stroke="#10b981" 
+                stroke="#a21caf" 
                 fill="url(#careerGradient)"
                 strokeWidth={3}
               />
@@ -515,25 +501,25 @@ const ProjectsSection = () => {
 
   const projects = [
     {
-      title: "Financial Wellness Platform",
-      description: "Pioneered the launch of a cutting-edge financial wellness platform managing $5.7 billion in AUM. Delivered a full quarter ahead of schedule and $600,000 under budget from a $7 million allocated budget.",
-      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MjQyMTd8MHwxfHNlYXJjaHwxfHxmaW50ZWNofGVufDB8fHx8MTc3MTI1NjgzM3ww&ixlib=rb-4.1.0&q=85",
+      title: "Enterprise Dashboard UI",
+      description: "Designed and built a comprehensive financial dashboard with real-time data visualization, interactive charts, and responsive layouts serving 5M+ users daily.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
       metrics: [
-        { label: "AUM", value: "$5.7B", color: "#10b981" },
-        { label: "Under Budget", value: "$600K", color: "#f59e0b" },
-        { label: "Ahead", value: "1 Quarter", color: "#6366f1" }
+        { label: "Users", value: "5M+", color: "#38bdf8" },
+        { label: "Performance", value: "98/100", color: "#f59e0b" },
+        { label: "Load Time", value: "<2s", color: "#a21caf" }
       ],
-      tags: ["Angular", "TypeScript", "REST APIs"]
+      tags: ["Angular", "D3.js", "SCSS", "RxJS"]
     },
     {
-      title: "Cost Transparency Solution",
-      description: "Implemented an innovative cost transparency solution for aging technology assets, resulting in significant savings of $12 million for the organization.",
-      image: "https://images.unsplash.com/photo-1509017174183-0b7e0278f1ec?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MjQyMTd8MHwxfHNlYXJjaHwyfHxmaW50ZWNofGVufDB8fHx8MTc3MTI1NjgzM3ww&ixlib=rb-4.1.0&q=85",
+      title: "Design System & Component Library",
+      description: "Created a scalable design system with 50+ reusable components, comprehensive documentation, and Storybook integration used across 12+ enterprise applications.",
+      image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
       metrics: [
-        { label: "Cost Savings", value: "$12M", color: "#10b981" },
-        { label: "Impact", value: "Enterprise", color: "#f59e0b" }
+        { label: "Components", value: "50+", color: "#a21caf" },
+        { label: "Apps Using", value: "12+", color: "#f59e0b" }
       ],
-      tags: ["Angular", "SASS", "Financial Analysis"]
+      tags: ["React", "Storybook", "TypeScript", "Tailwind"]
     }
   ];
 
@@ -778,3 +764,188 @@ function App() {
 }
 
 export default App;
+
+// --- FANCY HERO BACKGROUND CSS ---
+const style = document.createElement('style');
+style.innerHTML = `
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow: hidden;
+    background: transparent;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('assets/roshan3.jpeg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    z-index: 0;
+    filter: brightness(0.7) blur(1.5px) saturate(1.2);
+    transition: filter 0.5s;
+    animation: heroZoom 18s ease-in-out infinite alternate;
+  }
+  @keyframes heroZoom {
+    0% { transform: scale(1) }
+    100% { transform: scale(1.07) }
+  }
+  /* Overlay removed for full background visibility */
+  .hero-content, .hero-content.no-bg {
+    position: relative;
+    z-index: 2;
+    margin-top: 7vh;
+    padding: 0 2rem 0 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    background: none !important;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    border: none;
+    animation: fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) 0.2s both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (max-width: 700px) {
+    .hero-content { padding: 1.2rem 0.5rem; border-radius: 1.2rem; }
+    .hero-bg, .hero-bg-overlay { height: 120vh; }
+  }
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .hero-title, .no-bg-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.1rem;
+    color: #fff;
+    text-shadow: 0 4px 32px rgba(16,24,39,0.55), 0 2px 24px #10b98199;
+    letter-spacing: -1.5px;
+    text-align: center;
+  }
+  .gradient-text {
+    background: linear-gradient(90deg, #6366f1 10%, #f59e42 40%, #ec4899 70%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  .hero-subtitle, .no-bg-subtitle {
+    color: #f1f5f9;
+    font-size: 1.18rem;
+    margin-bottom: 2.2rem;
+    font-weight: 400;
+    text-shadow: 0 2px 16px #0f172a, 0 1px 8px #10b98199;
+    text-align: center;
+  }
+  .hero-badge, .no-bg-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none !important;
+    color: #f59e42;
+    font-weight: 700;
+    font-size: 1.08rem;
+    border-radius: 999px;
+    padding: 0.4rem 1.1rem 0.4rem 0.8rem;
+    margin-bottom: 1.2rem;
+    box-shadow: none;
+    border: none;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 16px #0f172a, 0 1px 8px #f59e4299;
+  }
+  .hero-stats, .no-bg-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .stat-card, .no-bg-stat {
+    background: none !important;
+    border-radius: 0;
+    padding: 0.5rem 1.1rem 0.5rem 1.1rem;
+    min-width: 110px;
+    box-shadow: none;
+    border: none;
+    text-align: center;
+    transition: none;
+    will-change: auto;
+  }
+  .stat-value, .no-bg-value {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.2rem;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 12px #0f172a, 0 2px 12px #6366f199;
+  }
+  .stat-suffix {
+    font-size: 1.1rem;
+    color: #ec4899;
+    margin-left: 0.1rem;
+    font-weight: 600;
+    text-shadow: 0 2px 8px #0f172a;
+  }
+  .stat-label, .no-bg-label {
+    color: #38bdf8;
+    font-size: 0.98rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 8px #0f172a;
+  }
+  .hero-buttons, .no-bg-buttons {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+  }
+  .btn-primary, .btn-secondary, .no-bg-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.7rem 1.7rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    box-shadow: 0 2px 12px 0 rgba(99,102,241,0.08);
+    text-decoration: none;
+    background: linear-gradient(90deg, #6366f1 0%, #f59e42 50%, #ec4899 100%);
+    color: #fff;
+    border: 2px solid #ec4899;
+    text-shadow: 0 2px 8px #0f172a;
+  }
+  .btn-primary.no-bg-btn:hover, .btn-secondary.no-bg-btn:hover, .no-bg-btn:hover {
+    background: linear-gradient(90deg, #f59e42 0%, #6366f1 50%, #38bdf8 100%);
+    color: #fff;
+    border-color: #38bdf8;
+  }
+  .scroll-indicator {
+    position: absolute;
+    left: 50%;
+    bottom: 2.5rem;
+    transform: translateX(-50%);
+    z-index: 3;
+    opacity: 0.85;
+    animation: bounceDown 2.2s infinite;
+  }
+  @keyframes bounceDown {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(18px); }
+  }
+`;
+document.head.appendChild(style);
