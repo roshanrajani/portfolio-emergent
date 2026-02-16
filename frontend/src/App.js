@@ -341,9 +341,9 @@ const SkillsSection = () => {
               </div>
               
               <div className="bar-chart-section">
-                <h3 className="chart-subtitle"><Database size={18} /> Backend</h3>
+                <h3 className="chart-subtitle"><Layers size={18} /> Styling & Design</h3>
                 <ResponsiveContainer width="100%" height={180}>
-                  <BarChart data={backendSkills} layout="vertical">
+                  <BarChart data={stylingSkills} layout="vertical">
                     <XAxis type="number" domain={[0, 100]} tick={{ fill: '#64748b' }} />
                     <YAxis type="category" dataKey="name" tick={{ fill: '#94a3b8', fontSize: 11 }} width={80} />
                     <Tooltip 
@@ -351,8 +351,8 @@ const SkillsSection = () => {
                       labelStyle={{ color: '#f8fafc' }}
                     />
                     <Bar dataKey="level" radius={[0, 4, 4, 0]}>
-                      {backendSkills.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={`hsl(${40 + index * 15}, 80%, 50%)`} />
+                      {stylingSkills.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={`hsl(${280 + index * 20}, 70%, 55%)`} />
                       ))}
                     </Bar>
                   </BarChart>
@@ -365,11 +365,11 @@ const SkillsSection = () => {
         <div className="skills-grid">
           {[
             { icon: <Layers />, name: "Angular", type: "Frontend" },
-            { icon: <Code2 />, name: "TypeScript", type: "Frontend" },
             { icon: <Code2 />, name: "React", type: "Frontend" },
-            { icon: <Database />, name: "MongoDB", type: "Backend" },
+            { icon: <Code2 />, name: "CSS/SCSS", type: "Styling" },
+            { icon: <Layers />, name: "Tailwind", type: "Styling" },
             { icon: <GitBranch />, name: "Git", type: "Tools" },
-            { icon: <TrendingUp />, name: "Financial Services", type: "Domain" },
+            { icon: <TrendingUp />, name: "UI/UX Design", type: "Design" },
           ].map((skill, i) => (
             <div key={i} className="skill-card" style={{ animationDelay: `${i * 0.1}s` }}>
               <div className="skill-icon">{skill.icon}</div>
