@@ -521,25 +521,25 @@ const ProjectsSection = () => {
 
   const projects = [
     {
-      title: "Financial Wellness Platform",
-      description: "Pioneered the launch of a cutting-edge financial wellness platform managing $5.7 billion in AUM. Delivered a full quarter ahead of schedule and $600,000 under budget from a $7 million allocated budget.",
-      image: "https://images.unsplash.com/photo-1559526324-593bc073d938?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MjQyMTd8MHwxfHNlYXJjaHwxfHxmaW50ZWNofGVufDB8fHx8MTc3MTI1NjgzM3ww&ixlib=rb-4.1.0&q=85",
+      title: "Enterprise Dashboard UI",
+      description: "Designed and built a comprehensive financial dashboard with real-time data visualization, interactive charts, and responsive layouts serving 5M+ users daily.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
       metrics: [
-        { label: "AUM", value: "$5.7B", color: "#10b981" },
-        { label: "Under Budget", value: "$600K", color: "#f59e0b" },
-        { label: "Ahead", value: "1 Quarter", color: "#6366f1" }
+        { label: "Users", value: "5M+", color: "#10b981" },
+        { label: "Performance", value: "98/100", color: "#f59e0b" },
+        { label: "Load Time", value: "<2s", color: "#6366f1" }
       ],
-      tags: ["Angular", "TypeScript", "REST APIs"]
+      tags: ["Angular", "D3.js", "SCSS", "RxJS"]
     },
     {
-      title: "Cost Transparency Solution",
-      description: "Implemented an innovative cost transparency solution for aging technology assets, resulting in significant savings of $12 million for the organization.",
-      image: "https://images.unsplash.com/photo-1509017174183-0b7e0278f1ec?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3MjQyMTd8MHwxfHNlYXJjaHwyfHxmaW50ZWNofGVufDB8fHx8MTc3MTI1NjgzM3ww&ixlib=rb-4.1.0&q=85",
+      title: "Design System & Component Library",
+      description: "Created a scalable design system with 50+ reusable components, comprehensive documentation, and Storybook integration used across 12+ enterprise applications.",
+      image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
       metrics: [
-        { label: "Cost Savings", value: "$12M", color: "#10b981" },
-        { label: "Impact", value: "Enterprise", color: "#f59e0b" }
+        { label: "Components", value: "50+", color: "#10b981" },
+        { label: "Apps Using", value: "12+", color: "#f59e0b" }
       ],
-      tags: ["Angular", "SASS", "Financial Analysis"]
+      tags: ["React", "Storybook", "TypeScript", "Tailwind"]
     }
   ];
 
