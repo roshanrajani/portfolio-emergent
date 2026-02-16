@@ -395,43 +395,43 @@ const ExperienceSection = () => {
       location: "New Jersey, United States",
       current: true,
       description: "Leading frontend development initiatives for financial services platform.",
-      achievements: ["$5.7B AUM Platform", "Quarter Ahead of Schedule", "$600K Under Budget"]
+      achievements: ["5M+ Users Dashboard", "Design System Lead", "98 Performance Score"]
     },
     {
-      role: "Lead Software Engineer",
+      role: "Senior UI Developer",
       company: "Wells Fargo",
       period: "September 2022 - April 2023",
       location: "New York, United States",
-      description: "Led software engineering projects in the financial domain.",
-      achievements: ["$12M Cost Savings", "Enterprise Architecture"]
+      description: "Led UI development for customer-facing banking applications with focus on accessibility.",
+      achievements: ["WCAG 2.1 AA Compliance", "Component Library"]
     },
     {
       role: "Senior Frontend Developer",
       company: "Transamerica",
       period: "March 2021 - August 2022",
       location: "New Jersey, United States",
-      description: "Developed and maintained enterprise-level frontend applications."
+      description: "Built responsive interfaces and interactive data visualizations for enterprise dashboards."
     },
     {
       role: "Angular Developer",
       company: "IBM",
       period: "January 2021 - March 2021",
       location: "New York Area",
-      description: "Specialized in Angular development for enterprise solutions."
+      description: "Developed enterprise UI components and contributed to design system documentation."
     },
     {
       role: "Frontend Developer",
       company: "Paychex",
       period: "March 2018 - December 2020",
       location: "Rochester, New York",
-      description: "Built and maintained frontend features for payroll and HR solutions."
+      description: "Created pixel-perfect UI implementations and smooth micro-animations for HR platform."
     },
     {
-      role: "IT Analyst",
+      role: "UI Developer",
       company: "Serco",
       period: "September 2014 - December 2015",
       location: "Hyderabad, India",
-      description: "Provided technical analysis and support for IT systems."
+      description: "Started career building responsive web interfaces and learning modern CSS techniques."
     }
   ];
 
