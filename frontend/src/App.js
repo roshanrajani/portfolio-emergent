@@ -149,7 +149,8 @@ const HeroSection = () => {
         
         <h1 className="hero-title">
           Crafting <span className="gradient-text">Beautiful User</span>
-          <br />Experiences
+          <br />
+          Experiences
         </h1>
         
         <p className="hero-subtitle">
