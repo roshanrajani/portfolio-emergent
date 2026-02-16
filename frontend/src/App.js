@@ -45,9 +45,9 @@ const careerGrowthData = [
 
 // Project Impact Data
 const projectImpactData = [
-  { metric: "Users Reached", value: 5, unit: "M+", color: "#10b981" },
-  { metric: "Components Built", value: 50, unit: "+", color: "#f59e0b" },
-  { metric: "Performance Score", value: 98, unit: "/100", color: "#6366f1" },
+  { metric: "Users Reached", value: 5, unit: "M+", color: "#38bdf8" }, // blue
+  { metric: "Components Built", value: 50, unit: "+", color: "#f59e0b" }, // orange
+  { metric: "Performance Score", value: 98, unit: "/100", color: "#a21caf" }, // purple
 ];
 
 // Animated Counter Hook
@@ -117,12 +117,12 @@ const HeroSection = () => {
 
   return (
     <section className="hero-section" data-testid="hero-section">
+      {/* Background Image only, no overlay, no profile image */}
+      <div className="hero-bg no-blur" style={{ backgroundImage: "url(assets/roshan3.jpeg)" }} />
       <div className="hero-particles"></div>
-      <div className="hero-gradient"></div>
-      
       <nav className="nav-bar" data-testid="navigation">
         <div className="nav-logo">
-          <span className="logo-text">RR</span>
+          <span className="logo-text">Roshan Rajani</span>
         </div>
         <div className="nav-links">
           <a href="#about" className="nav-link">About</a>
@@ -133,73 +133,51 @@ const HeroSection = () => {
         </div>
       </nav>
 
-      <div className="hero-content">
-        <div className="hero-profile-image">
-          <img 
-            src="https://customer-assets.emergentagent.com/job_1193c30f-0605-40da-bfaf-09b9bd9195d1/artifacts/ve5f0wsp_A5EC1D3B-C46F-4FCE-9758-9C9E045431BB.jpeg" 
-            alt="Rosh Raj"
-            className="profile-photo"
-          />
-        </div>
-        
-        <div className="hero-badge">
+      <div className="hero-content no-bg">
+        {/* Profile image removed for full background visibility */}
+        <div className="hero-badge no-bg-badge">
           <Award className="badge-icon" size={16} />
           <span>STAR Award Winner • UI Excellence</span>
         </div>
-        
-        <h1 className="hero-title">
+        <h1 className="hero-title no-bg-title">
           Crafting <span className="gradient-text">Beautiful User</span>
           <br />
           Experiences
         </h1>
-        
-        <p className="hero-subtitle">
+        <p className="hero-subtitle no-bg-subtitle">
           Senior UI Developer with 7+ years of expertise creating pixel-perfect interfaces, 
           seamless animations, and intuitive user experiences. Passionate about turning 
           complex requirements into elegant, performant frontend solutions.
         </p>
-
-        <div className="hero-stats" data-testid="hero-stats">
-          <div className="stat-card" ref={aumCounter.ref}>
-            <div className="stat-value">
+        <div className="hero-stats no-bg-stats" data-testid="hero-stats">
+          <div className="stat-card no-bg-stat" ref={aumCounter.ref}>
+            <div className="stat-value no-bg-value">
               {aumCounter.count.toFixed(1)}
               <span className="stat-suffix">M+</span>
             </div>
-            <div className="stat-label">Users Impacted</div>
-            <div className="stat-bar">
-              <div className="stat-bar-fill emerald"></div>
-            </div>
+            <div className="stat-label no-bg-label">Users Impacted</div>
           </div>
-          
-          <div className="stat-card" ref={savingsCounter.ref}>
-            <div className="stat-value">
+          <div className="stat-card no-bg-stat" ref={savingsCounter.ref}>
+            <div className="stat-value no-bg-value">
               {savingsCounter.count}
               <span className="stat-suffix">+</span>
             </div>
-            <div className="stat-label">Projects Delivered</div>
-            <div className="stat-bar">
-              <div className="stat-bar-fill gold"></div>
-            </div>
+            <div className="stat-label no-bg-label">Projects Delivered</div>
           </div>
-          
-          <div className="stat-card" ref={yearsCounter.ref}>
-            <div className="stat-value">
+          <div className="stat-card no-bg-stat" ref={yearsCounter.ref}>
+            <div className="stat-value no-bg-value">
               {yearsCounter.count}
               <span className="stat-suffix">+</span>
             </div>
-            <div className="stat-label">Years of UI Craft</div>
-            <div className="stat-bar">
-              <div className="stat-bar-fill indigo"></div>
-            </div>
+            <div className="stat-label no-bg-label">Years of UI Craft</div>
           </div>
         </div>
-
-        <div className="hero-buttons">
-          <a href="#projects" className="btn-primary" data-testid="view-projects-btn">
+        <div className="hero-buttons no-bg-buttons">
+          <a href="#projects" className="btn-primary no-bg-btn" data-testid="view-projects-btn">
             <Briefcase size={18} />
             View Projects
           </a>
-          <a href="#contact" className="btn-secondary" data-testid="contact-btn">
+          <a href="#contact" className="btn-secondary no-bg-btn" data-testid="contact-btn">
             <Mail size={18} />
             Get in Touch
           </a>
@@ -247,7 +225,7 @@ const AboutSection = () => {
           <div className="about-image-container">
             <div className="about-image-frame">
               <img 
-                src="https://customer-assets.emergentagent.com/job_1193c30f-0605-40da-bfaf-09b9bd9195d1/artifacts/6k4wph2h_125B8FC8-0A58-4466-AFD1-FC004575DCC3.jpeg" 
+                src= "assets/roshan3.jpeg"
                 alt="Rosh Raj"
                 className="about-image"
               />
@@ -312,8 +290,8 @@ const SkillsSection = () => {
                   <Radar
                     name="Skill Level"
                     dataKey="level"
-                    stroke="#10b981"
-                    fill="#10b981"
+                    stroke="#38bdf8"
+                    fill="#a21caf"
                     fillOpacity={0.3}
                     strokeWidth={2}
                   />
@@ -451,8 +429,9 @@ const ExperienceSection = () => {
             <AreaChart data={careerGrowthData}>
               <defs>
                 <linearGradient id="careerGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.4}/>
-                  <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+                  <stop offset="5%" stopColor="#38bdf8" stopOpacity={0.4}/>
+                  <stop offset="50%" stopColor="#a21caf" stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
                 </linearGradient>
               </defs>
               <XAxis dataKey="year" tick={{ fill: '#64748b', fontSize: 11 }} />
@@ -464,7 +443,7 @@ const ExperienceSection = () => {
               <Area 
                 type="monotone" 
                 dataKey="level" 
-                stroke="#10b981" 
+                stroke="#a21caf" 
                 fill="url(#careerGradient)"
                 strokeWidth={3}
               />
@@ -526,9 +505,9 @@ const ProjectsSection = () => {
       description: "Designed and built a comprehensive financial dashboard with real-time data visualization, interactive charts, and responsive layouts serving 5M+ users daily.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
       metrics: [
-        { label: "Users", value: "5M+", color: "#10b981" },
+        { label: "Users", value: "5M+", color: "#38bdf8" },
         { label: "Performance", value: "98/100", color: "#f59e0b" },
-        { label: "Load Time", value: "<2s", color: "#6366f1" }
+        { label: "Load Time", value: "<2s", color: "#a21caf" }
       ],
       tags: ["Angular", "D3.js", "SCSS", "RxJS"]
     },
@@ -537,7 +516,7 @@ const ProjectsSection = () => {
       description: "Created a scalable design system with 50+ reusable components, comprehensive documentation, and Storybook integration used across 12+ enterprise applications.",
       image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?crop=entropy&cs=srgb&fm=jpg&q=85&w=800",
       metrics: [
-        { label: "Components", value: "50+", color: "#10b981" },
+        { label: "Components", value: "50+", color: "#a21caf" },
         { label: "Apps Using", value: "12+", color: "#f59e0b" }
       ],
       tags: ["React", "Storybook", "TypeScript", "Tailwind"]
@@ -785,3 +764,188 @@ function App() {
 }
 
 export default App;
+
+// --- FANCY HERO BACKGROUND CSS ---
+const style = document.createElement('style');
+style.innerHTML = `
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow: hidden;
+    background: transparent;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('assets/roshan3.jpeg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    z-index: 0;
+    filter: brightness(0.7) blur(1.5px) saturate(1.2);
+    transition: filter 0.5s;
+    animation: heroZoom 18s ease-in-out infinite alternate;
+  }
+  @keyframes heroZoom {
+    0% { transform: scale(1) }
+    100% { transform: scale(1.07) }
+  }
+  /* Overlay removed for full background visibility */
+  .hero-content, .hero-content.no-bg {
+    position: relative;
+    z-index: 2;
+    margin-top: 7vh;
+    padding: 0 2rem 0 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    background: none !important;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    border: none;
+    animation: fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) 0.2s both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (max-width: 700px) {
+    .hero-content { padding: 1.2rem 0.5rem; border-radius: 1.2rem; }
+    .hero-bg, .hero-bg-overlay { height: 120vh; }
+  }
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .hero-title, .no-bg-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.1rem;
+    color: #fff;
+    text-shadow: 0 4px 32px rgba(16,24,39,0.55), 0 2px 24px #10b98199;
+    letter-spacing: -1.5px;
+    text-align: center;
+  }
+  .gradient-text {
+    background: linear-gradient(90deg, #6366f1 10%, #f59e42 40%, #ec4899 70%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  .hero-subtitle, .no-bg-subtitle {
+    color: #f1f5f9;
+    font-size: 1.18rem;
+    margin-bottom: 2.2rem;
+    font-weight: 400;
+    text-shadow: 0 2px 16px #0f172a, 0 1px 8px #10b98199;
+    text-align: center;
+  }
+  .hero-badge, .no-bg-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none !important;
+    color: #f59e42;
+    font-weight: 700;
+    font-size: 1.08rem;
+    border-radius: 999px;
+    padding: 0.4rem 1.1rem 0.4rem 0.8rem;
+    margin-bottom: 1.2rem;
+    box-shadow: none;
+    border: none;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 16px #0f172a, 0 1px 8px #f59e4299;
+  }
+  .hero-stats, .no-bg-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .stat-card, .no-bg-stat {
+    background: none !important;
+    border-radius: 0;
+    padding: 0.5rem 1.1rem 0.5rem 1.1rem;
+    min-width: 110px;
+    box-shadow: none;
+    border: none;
+    text-align: center;
+    transition: none;
+    will-change: auto;
+  }
+  .stat-value, .no-bg-value {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.2rem;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 12px #0f172a, 0 2px 12px #6366f199;
+  }
+  .stat-suffix {
+    font-size: 1.1rem;
+    color: #ec4899;
+    margin-left: 0.1rem;
+    font-weight: 600;
+    text-shadow: 0 2px 8px #0f172a;
+  }
+  .stat-label, .no-bg-label {
+    color: #38bdf8;
+    font-size: 0.98rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 8px #0f172a;
+  }
+  .hero-buttons, .no-bg-buttons {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+  }
+  .btn-primary, .btn-secondary, .no-bg-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.7rem 1.7rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    box-shadow: 0 2px 12px 0 rgba(99,102,241,0.08);
+    text-decoration: none;
+    background: linear-gradient(90deg, #6366f1 0%, #f59e42 50%, #ec4899 100%);
+    color: #fff;
+    border: 2px solid #ec4899;
+    text-shadow: 0 2px 8px #0f172a;
+  }
+  .btn-primary.no-bg-btn:hover, .btn-secondary.no-bg-btn:hover, .no-bg-btn:hover {
+    background: linear-gradient(90deg, #f59e42 0%, #6366f1 50%, #38bdf8 100%);
+    color: #fff;
+    border-color: #38bdf8;
+  }
+  .scroll-indicator {
+    position: absolute;
+    left: 50%;
+    bottom: 2.5rem;
+    transform: translateX(-50%);
+    z-index: 3;
+    opacity: 0.85;
+    animation: bounceDown 2.2s infinite;
+  }
+  @keyframes bounceDown {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(18px); }
+  }
+`;
+document.head.appendChild(style);
