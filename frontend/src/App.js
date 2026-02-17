@@ -133,6 +133,25 @@ const HeroSection = () => {
   const savingsCounter = useCountUp(12, 2500);
   const yearsCounter = useCountUp(7, 2000);
 
+  useEffect(() => {
+    // Set background image based on screen width
+    const heroBg = document.querySelector('.hero-bg');
+    if (heroBg) {
+      const updateBg = () => {
+        if (window.innerWidth <= 1024) {
+          heroBg.style.backgroundImage = "url('assets/roshan_mobile4.jpeg')";
+          heroBg.style.backgroundPosition = "center center";
+        } else {
+          heroBg.style.backgroundImage = "url('assets/roshan4.jpeg')";
+          heroBg.style.backgroundPosition = "center top";
+        }
+      };
+      updateBg();
+      window.addEventListener('resize', updateBg);
+      return () => window.removeEventListener('resize', updateBg);
+    }
+  }, []);
+
   return (
     <section className="hero-section" data-testid="hero-section">
       {/* Background Image only, no overlay, no profile image */}
@@ -889,7 +908,7 @@ function App() {
 
 export default App;
 
-// --- FANCY HERO BACKGROUND CSS ---
+// --- HERO BACKGROUND CSS ---
 const style = document.createElement('style');
 style.innerHTML = `
   .hero-section {
@@ -912,7 +931,6 @@ style.innerHTML = `
     background-position: center top;
     background-repeat: no-repeat;
     z-index: 0;
-    filter: brightness(0.7) saturate(1.2);
     transition: filter 0.5s;
     animation: heroZoom 18s ease-in-out infinite alternate;
   }
@@ -920,7 +938,6 @@ style.innerHTML = `
     0% { transform: scale(1) }
     100% { transform: scale(1.07) }
   }
-  /* Overlay removed for full background visibility */
   .hero-content, .hero-content.no-bg {
     position: relative;
     z-index: 2;
@@ -938,14 +955,6 @@ style.innerHTML = `
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  @media (max-width: 700px) {
-    .hero-bg {
-      background-position: right top;
-      filter: brightness(0.5) saturate(1.1);
-    }
-    .hero-content { padding: 1.2rem 0.5rem; border-radius: 1.2rem; }
-    .hero-bg, .hero-bg-overlay { height: 120vh; }
   }
   @keyframes fadeInUp {
     0% { opacity: 0; transform: translateY(40px); }

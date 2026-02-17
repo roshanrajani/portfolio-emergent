@@ -433,6 +433,54 @@ body {
 
 .snake-wrapper { display:flex; flex-direction:column; align-items:center; gap:8px; }
 .snake-canvas {
+
+/* Add subtle dark backdrop behind hero content on tablet/mobile to improve contrast
+   without touching the nav/header. Badge styles remain unchanged. */
+@media (max-width: 1024px) {
+  .hero-content {
+    position: relative;
+  }
+
+  .hero-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.35));
+    border-radius: 0.6rem;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Ensure text sits above the backdrop */
+  .hero-content > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-content::before {
+    background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.45));
+    border-radius: 1rem;
+  }
+
+  /* Slightly lighter title color over the stronger backdrop */
+  .hero-content .hero-title,
+  .hero-content .no-bg-title {
+    color: #ffffff !important;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.6) !important;
+  }
+
+  .hero-content .hero-subtitle,
+  .hero-content .no-bg-subtitle {
+    color: rgba(255,255,255,0.92) !important;
+  }
+
+  .hero-content .stat-value,
+  .hero-content .no-bg-value {
+    color: rgba(255,255,255,0.95) !important;
+  }
+}
   background: linear-gradient(180deg, #061226, #071026);
   border-radius: 12px;
   width: 100%;
@@ -1592,4 +1640,295 @@ body {
     gap: 1rem;
     text-align: center;
   }
+}
+/* ========================================
+   HERO BACKGROUND STYLES
+   ======================================== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow: hidden;
+  background: transparent;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 0;
+  transition: filter 0.5s;
+  animation: heroZoom 18s ease-in-out infinite alternate;
+}
+
+@media (max-width: 1024px) {
+  .hero-bg {
+    background-position: center center;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-bg {
+    background-position: center center;
+  }
+}
+
+/* Make center hero text use teal/cyan tones on tablet/phone to avoid clashing with yellow/black backgrounds */
+@media (max-width: 1024px) {
+  /* Title: teal -> cyan gradient */
+  .hero-content .hero-title,
+  .hero-content .no-bg-title {
+    background: linear-gradient(90deg, #035f63 0%, #0ea5b7 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.45) !important;
+  }
+
+  /* Subtitle: light cyan for readability */
+  .hero-content .hero-subtitle,
+  .hero-content .no-bg-subtitle {
+    color: #cffafe !important; /* sky-50 */
+    text-shadow: 0 1px 6px rgba(0,0,0,0.45) !important;
+  }
+
+  /* Badge: keep visual weight but ensure contrast */
+  .hero-content .hero-badge,
+  .hero-content .no-bg-badge {
+    color: #053f3f !important;
+    background: rgba(14,165,183,0.1) !important;
+    box-shadow: 0 6px 18px rgba(14,165,183,0.05) !important;
+  }
+
+  /* Stat values: cyan */
+  .hero-content .stat-value,
+  .hero-content .no-bg-value {
+    color: #06b6d4 !important; /* cyan-400 */
+  }
+
+  .hero-content .stat-label,
+  .hero-content .no-bg-label {
+    color: rgba(14,165,183,0.95) !important;
+  }
+}
+
+/* Increase hero subtitle (the bio line) for better readability on iPad */
+@media (max-width: 1024px) {
+  .hero-content .hero-subtitle,
+  .hero-content .no-bg-subtitle {
+    font-size: 1.28rem !important;
+    line-height: 1.45 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-content .hero-title,
+  .hero-content .no-bg-title {
+    background: linear-gradient(90deg, #06b6d4 0%, #0891b2 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent !important;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.55) !important;
+  }
+
+  .hero-content .hero-subtitle,
+  .hero-content .no-bg-subtitle {
+    color: #d9fbff !important;
+  }
+
+  .hero-content .hero-badge,
+  .hero-content .no-bg-badge {
+    color: #042f2f !important;
+    background: rgba(14,165,183,0.12) !important;
+  }
+
+  .hero-content .stat-value,
+  .hero-content .no-bg-value {
+    color: #0891b2 !important;
+  }
+}
+
+/* Increase hero subtitle font-size for mobile devices */
+@media (max-width: 700px) {
+  .hero-content .hero-subtitle,
+  .hero-content .no-bg-subtitle {
+    font-size: 1.44rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+@keyframes heroZoom {
+  0% { transform: scale(1) }
+  100% { transform: scale(1.07) }
+}
+
+.hero-content, .hero-content.no-bg {
+  position: relative;
+  z-index: 2;
+  margin-top: 7vh;
+  padding: 0 2rem 0 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  background: none !important;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  border: none;
+  animation: fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) 0.2s both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-title, .no-bg-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.1rem;
+  color: #fff;
+  text-shadow: 0 4px 32px rgba(16,24,39,0.55), 0 2px 24px #10b98199;
+  letter-spacing: -1.5px;
+  text-align: center;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #6366f1 10%, #f59e42 40%, #ec4899 70%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.hero-subtitle, .no-bg-subtitle {
+  color: #f1f5f9;
+  font-size: 1.18rem;
+  margin-bottom: 2.2rem;
+  font-weight: 400;
+  text-shadow: 0 2px 16px #0f172a, 0 1px 8px #10b98199;
+  text-align: center;
+}
+
+.hero-badge, .no-bg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none !important;
+  color: #f59e42;
+  font-weight: 700;
+  font-size: 1.08rem;
+  border-radius: 999px;
+  padding: 0.4rem 1.1rem 0.4rem 0.8rem;
+  margin-bottom: 1.2rem;
+  box-shadow: none;
+  border: none;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 16px #0f172a, 0 1px 8px #f59e4299;
+}
+
+.hero-stats, .no-bg-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.stat-card, .no-bg-stat {
+  background: none !important;
+  border-radius: 0;
+  padding: 0.5rem 1.1rem 0.5rem 1.1rem;
+  min-width: 110px;
+  box-shadow: none;
+  border: none;
+  text-align: center;
+  transition: none;
+  will-change: auto;
+}
+
+.stat-value, .no-bg-value {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.2rem;
+  letter-spacing: -1px;
+  text-shadow: 0 2px 12px #0f172a, 0 2px 12px #6366f199;
+}
+
+.stat-suffix {
+  font-size: 1.1rem;
+  color: #ec4899;
+  margin-left: 0.1rem;
+  font-weight: 600;
+  text-shadow: 0 2px 8px #0f172a;
+}
+
+.stat-label, .no-bg-label {
+  color: #38bdf8;
+  font-size: 0.98rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 8px #0f172a;
+}
+
+.hero-buttons, .no-bg-buttons {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.btn-primary, .btn-secondary, .no-bg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.7rem 1.7rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  box-shadow: 0 2px 12px 0 rgba(99,102,241,0.08);
+  text-decoration: none;
+  background: linear-gradient(90deg, #6366f1 0%, #f59e42 50%, #ec4899 100%);
+  color: #fff;
+  border: 2px solid #ec4899;
+  text-shadow: 0 2px 8px #0f172a;
+}
+
+.btn-primary.no-bg-btn:hover, .btn-secondary.no-bg-btn:hover, .no-bg-btn:hover {
+  background: linear-gradient(90deg, #f59e42 0%, #6366f1 50%, #38bdf8 100%);
+  color: #fff;
+  border-color: #38bdf8;
+}
+
+.scroll-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 2.5rem;
+  transform: translateX(-50%);
+  z-index: 3;
+  opacity: 0.85;
+  animation: bounceDown 2.2s infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(18px); }
 }
