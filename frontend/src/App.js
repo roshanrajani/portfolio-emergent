@@ -11,6 +11,22 @@ import {
   AreaChart, Area, Cell, LineChart, Line
 } from "recharts";
 
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription
+} from "@/components/ui/dialog";
+
+import { Button } from "@/components/ui/button";
+import SnakeGame from "@/components/game/snake-game";
+import WhackAMole from "@/components/game/whack-a-mole";
+import MemoryMatch from "@/components/game/memory-match";
+import TicTacToe from "@/components/game/tic-tac-toe";
+import ReactionTest from "@/components/game/reaction-test";
+
 // Skills Data for Charts
 const skillsRadarData = [
   { skill: "Angular", level: 95, fullMark: 100 },
@@ -118,7 +134,7 @@ const HeroSection = () => {
   return (
     <section className="hero-section" data-testid="hero-section">
       {/* Background Image only, no overlay, no profile image */}
-      <div className="hero-bg no-blur" style={{ backgroundImage: "url(assets/roshan3.jpeg)" }} />
+      <div className="hero-bg no-blur" style={{ backgroundImage: "url(assets/roshan.jpeg)" }} />
       <div className="hero-particles"></div>
       <nav className="nav-bar" data-testid="navigation">
         <div className="nav-logo">
@@ -225,7 +241,7 @@ const AboutSection = () => {
           <div className="about-image-container">
             <div className="about-image-frame">
               <img 
-                src= "assets/roshan3.jpeg"
+                src= "assets/roshan.jpeg"
                 alt="Rosh Raj"
                 className="about-image"
               />
@@ -740,9 +756,6 @@ const Footer = () => (
   <footer className="footer" data-testid="footer">
     <div className="footer-content">
       <p>© 2024 Rosh Raj. Built with passion for excellence.</p>
-      <a href="https://app.emergent.sh/?utm_source=emergent-badge" target="_blank" rel="noopener noreferrer" className="emergent-badge">
-        Made with Emergent
-      </a>
     </div>
   </footer>
 );
@@ -751,6 +764,90 @@ const Footer = () => (
 function App() {
   return (
     <div className="App dark">
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button className="game-floating-btn" variant="ghost" size="icon" aria-label="Open game">
+            <span role="img" aria-label="game">🎮</span>
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="max-w-md w-[95vw]">
+          <DialogHeader>
+            <DialogTitle>Play — Snake</DialogTitle>
+            <DialogDescription>Use arrow keys, on-screen arrows or swipe. Mobile-friendly.</DialogDescription>
+          </DialogHeader>
+          <div style={{ paddingTop: '0.5rem' }}>
+            <SnakeGame />
+          </div>
+        </DialogContent>
+      </Dialog>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button className="game-floating-btn game-floating-btn-2" variant="ghost" size="icon" aria-label="Open mole game">
+            <span role="img" aria-label="mole">🔨</span>
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="max-w-sm w-[95vw]">
+          <DialogHeader>
+            <DialogTitle>Whack — Mole</DialogTitle>
+            <DialogDescription>Tap the mole — mobile friendly. 20s rounds.</DialogDescription>
+          </DialogHeader>
+          <div style={{ paddingTop: '0.5rem' }}>
+            <WhackAMole />
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button className="game-floating-btn game-floating-btn-3" variant="ghost" size="icon" aria-label="Open memory match">
+            <span role="img" aria-label="memory">🧠</span>
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="max-w-sm w-[95vw]">
+          <DialogHeader>
+            <DialogTitle>Memory Match</DialogTitle>
+            <DialogDescription>Flip cards and match pairs — mobile friendly.</DialogDescription>
+          </DialogHeader>
+          <div style={{ paddingTop: '0.5rem' }}>
+            <MemoryMatch />
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button className="game-floating-btn game-floating-btn-4" variant="ghost" size="icon" aria-label="Open tic tac toe">
+            <span role="img" aria-label="tic">❌</span>
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="max-w-sm w-[95vw]">
+          <DialogHeader>
+            <DialogTitle>Tic‑Tac‑Toe</DialogTitle>
+            <DialogDescription>Play vs a quick CPU — tap to place.</DialogDescription>
+          </DialogHeader>
+          <div style={{ paddingTop: '0.5rem' }}>
+            <TicTacToe />
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button className="game-floating-btn game-floating-btn-5" variant="ghost" size="icon" aria-label="Open reaction test">
+            <span role="img" aria-label="reaction">⚡</span>
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="max-w-sm w-[95vw]">
+          <DialogHeader>
+            <DialogTitle>Reaction Test</DialogTitle>
+            <DialogDescription>Measure your reaction time — tap when it turns green.</DialogDescription>
+          </DialogHeader>
+          <div style={{ paddingTop: '0.5rem' }}>
+            <ReactionTest />
+          </div>
+        </DialogContent>
+      </Dialog>
+
       <HeroSection />
       <AboutSection />
       <SkillsSection />
@@ -783,7 +880,7 @@ style.innerHTML = `
     inset: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('assets/roshan3.jpeg');
+    background-image: url('assets/roshan.jpeg');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -816,6 +913,10 @@ style.innerHTML = `
     align-items: center;
   }
   @media (max-width: 700px) {
+    .hero-bg {
+      background-position: right top;
+      filter: brightness(0.5) blur(0.8px) saturate(1.1);
+    }
     .hero-content { padding: 1.2rem 0.5rem; border-radius: 1.2rem; }
     .hero-bg, .hero-bg-overlay { height: 120vh; }
   }
