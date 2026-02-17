@@ -626,6 +626,65 @@ body {
   .game-floating-btn, .snake-canvas { transition: none !important; }
 }
 
+/* Hide built-in top-right close for game dialogs (we provide a bottom Close button) */
+.game-dialog button[class*="absolute"] { display: none !important; }
+
+/* Bottom Close button for games - always visible */
+.game-close-btn {
+  min-width: 120px !important;
+  background: linear-gradient(135deg, #10b981, #34d399) !important;
+  color: #fff !important;
+  border: 0 !important;
+  font-weight: 600 !important;
+  padding: 10px 20px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+.game-close-btn:hover {
+  background: linear-gradient(135deg, #059669, #10b981) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4) !important;
+}
+@media (max-width: 640px) {
+  .game-dialog .game-close-btn { width: 100% !important; min-width: auto !important; }
+}
+
+/* Mobile-friendly tweaks for games */
+@media (max-width: 640px) {
+  /* make dialogs nearly full screen */
+  .game-dialog {
+    max-width: 96vw !important;
+    width: 96vw !important;
+    height: 88vh !important;
+  }
+
+  /* Snake: larger controls + canvas uses more width */
+  .snake-canvas { max-width: 92vw; }
+  .snake-controls { gap: 12px; }
+  .snake-btn { min-width:56px; padding: 10px 14px; font-size:18px; border-radius:10px; }
+
+  /* Mole: responsive holes */
+  .mole-grid { width: min(92vw, 360px); grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .mole-hole { width: 100%; height: 0; padding-bottom: 100%; border-radius: 12px; }
+  .mole-head { width: 56%; height: 56%; }
+
+  /* Memory: scalable cards */
+  .memory-grid { width: min(92vw, 360px); grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .memory-card { aspect-ratio: 4/5; width: 100%; }
+  .memory-face { font-size: 22px; }
+
+  /* TTT: scale to viewport */
+  .ttt-grid { width: min(92vw, 320px); grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .ttt-cell { aspect-ratio: 1/1; font-size: clamp(18px, 6vw, 28px); }
+
+  /* Reaction: expand tappable area */
+  .reaction-screen { width: min(92vw, 340px); height: max(110px, 20vh); font-size: 20px; }
+}
+
+
 /* ========================================
    SECTION COMMON STYLES
    ======================================== */

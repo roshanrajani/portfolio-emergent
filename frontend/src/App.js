@@ -3,7 +3,7 @@ import "@/App.css";
 import { 
   Mail, MapPin, Linkedin, ExternalLink, Award, TrendingUp, 
   Calendar, Building2, GraduationCap, Code2, Database, 
-  GitBranch, Layers, ChevronDown, Send, Briefcase, Star
+  GitBranch, Layers, ChevronDown, Send, Briefcase, Star, X
 } from "lucide-react";
 import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar,
@@ -17,7 +17,9 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogDescription
+  DialogDescription,
+  DialogFooter,
+  DialogClose
 } from "@/components/ui/dialog";
 
 import { Button } from "@/components/ui/button";
@@ -134,7 +136,7 @@ const HeroSection = () => {
   return (
     <section className="hero-section" data-testid="hero-section">
       {/* Background Image only, no overlay, no profile image */}
-      <div className="hero-bg no-blur" style={{ backgroundImage: "url(assets/roshan.jpeg)" }} />
+      <div className="hero-bg no-blur" style={{ backgroundImage: "url(assets/roshan4.jpeg)" }} />
       <div className="hero-particles"></div>
       <nav className="nav-bar" data-testid="navigation">
         <div className="nav-logo">
@@ -241,7 +243,7 @@ const AboutSection = () => {
           <div className="about-image-container">
             <div className="about-image-frame">
               <img 
-                src= "assets/roshan.jpeg"
+                src= "assets/roshan4.jpeg"
                 alt="Rosh Raj"
                 className="about-image"
               />
@@ -770,14 +772,19 @@ function App() {
             <span role="img" aria-label="game">🎮</span>
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-w-md w-[95vw]">
-          <DialogHeader>
+        <DialogContent className="game-dialog w-[96vw] max-w-md h-[88vh] sm:h-auto overflow-auto">
+          <DialogHeader className="relative">
             <DialogTitle>Play — Snake</DialogTitle>
             <DialogDescription>Use arrow keys, on-screen arrows or swipe. Mobile-friendly.</DialogDescription>
           </DialogHeader>
           <div style={{ paddingTop: '0.5rem' }}>
             <SnakeGame />
           </div>
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button className="game-close-btn" variant="outline">Close</Button>
+            </DialogClose>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
       <Dialog>
@@ -786,14 +793,19 @@ function App() {
             <span role="img" aria-label="mole">🔨</span>
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-w-sm w-[95vw]">
-          <DialogHeader>
+        <DialogContent className="game-dialog w-[96vw] max-w-sm h-[88vh] sm:h-auto overflow-auto">
+          <DialogHeader className="relative">
             <DialogTitle>Whack — Mole</DialogTitle>
             <DialogDescription>Tap the mole — mobile friendly. 20s rounds.</DialogDescription>
           </DialogHeader>
           <div style={{ paddingTop: '0.5rem' }}>
             <WhackAMole />
           </div>
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button className="game-close-btn" variant="outline">Close</Button>
+            </DialogClose>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
 
@@ -803,14 +815,19 @@ function App() {
             <span role="img" aria-label="memory">🧠</span>
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-w-sm w-[95vw]">
-          <DialogHeader>
+        <DialogContent className="game-dialog w-[96vw] max-w-sm h-[88vh] sm:h-auto overflow-auto">
+          <DialogHeader className="relative">
             <DialogTitle>Memory Match</DialogTitle>
             <DialogDescription>Flip cards and match pairs — mobile friendly.</DialogDescription>
           </DialogHeader>
           <div style={{ paddingTop: '0.5rem' }}>
             <MemoryMatch />
           </div>
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button className="game-close-btn" variant="outline">Close</Button>
+            </DialogClose>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
 
@@ -820,14 +837,19 @@ function App() {
             <span role="img" aria-label="tic">❌</span>
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-w-sm w-[95vw]">
-          <DialogHeader>
+        <DialogContent className="game-dialog w-[96vw] max-w-sm h-[88vh] sm:h-auto overflow-auto">
+          <DialogHeader className="relative">
             <DialogTitle>Tic‑Tac‑Toe</DialogTitle>
             <DialogDescription>Play vs a quick CPU — tap to place.</DialogDescription>
           </DialogHeader>
           <div style={{ paddingTop: '0.5rem' }}>
             <TicTacToe />
           </div>
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button className="game-close-btn" variant="outline">Close</Button>
+            </DialogClose>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
 
@@ -837,14 +859,19 @@ function App() {
             <span role="img" aria-label="reaction">⚡</span>
           </Button>
         </DialogTrigger>
-        <DialogContent className="max-w-sm w-[95vw]">
-          <DialogHeader>
+        <DialogContent className="game-dialog w-[96vw] max-w-sm h-[88vh] sm:h-auto overflow-auto">
+          <DialogHeader className="relative">
             <DialogTitle>Reaction Test</DialogTitle>
             <DialogDescription>Measure your reaction time — tap when it turns green.</DialogDescription>
           </DialogHeader>
           <div style={{ paddingTop: '0.5rem' }}>
             <ReactionTest />
           </div>
+          <DialogFooter>
+            <DialogClose asChild>
+              <Button className="game-close-btn" variant="outline">Close</Button>
+            </DialogClose>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
 
@@ -880,12 +907,12 @@ style.innerHTML = `
     inset: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('assets/roshan.jpeg');
+    background-image: url('assets/roshan4.jpeg');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
     z-index: 0;
-    filter: brightness(0.7) blur(1.5px) saturate(1.2);
+    filter: brightness(0.7) saturate(1.2);
     transition: filter 0.5s;
     animation: heroZoom 18s ease-in-out infinite alternate;
   }
@@ -915,7 +942,7 @@ style.innerHTML = `
   @media (max-width: 700px) {
     .hero-bg {
       background-position: right top;
-      filter: brightness(0.5) blur(0.8px) saturate(1.1);
+      filter: brightness(0.5) saturate(1.1);
     }
     .hero-content { padding: 1.2rem 0.5rem; border-radius: 1.2rem; }
     .hero-bg, .hero-bg-overlay { height: 120vh; }
