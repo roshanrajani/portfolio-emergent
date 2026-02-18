@@ -78,9 +78,18 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 4rem;
-  background: rgba(10, 10, 15, 0.9);
-  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.nav-bar-transparent {
+  background: rgba(10, 10, 15, 0.08);
+  backdrop-filter: none;
+}
+
+.nav-bar-opaque {
+  background: rgba(10, 10, 15, 0.92);
+  backdrop-filter: blur(20px);
 }
 
 .nav-logo {

@@ -128,7 +128,7 @@ const useSectionReveal = () => {
 };
 
 // Hero Section
-const HeroSection = () => {
+const HeroSection = ({ navBarOpaque = false }) => {
   const aumCounter = useCountUp(5.7, 2500, 0, 1); // Added decimals=1 for 5.7
   const savingsCounter = useCountUp(12, 2500);
   const yearsCounter = useCountUp(7, 2000);
@@ -157,7 +157,7 @@ const HeroSection = () => {
       {/* Background Image only, no overlay, no profile image */}
       <div className="hero-bg no-blur" style={{ backgroundImage: "url(assets/roshan4.jpeg)" }} />
       <div className="hero-particles"></div>
-      <nav className="nav-bar" data-testid="navigation">
+      <nav className={`nav-bar${navBarOpaque ? ' nav-bar-transparent' : ' nav-bar-opaque'}`} data-testid="navigation">
         <div className="nav-logo">
           <span className="logo-text">Roshan Rajani</span>
         </div>
@@ -783,9 +783,11 @@ const Footer = () => (
 
 // Main App
 function App() {
+  const [gameDialogOpen, setGameDialogOpen] = useState(false);
+
   return (
     <div className="App dark">
-      <Dialog>
+      <Dialog onOpenChange={setGameDialogOpen}>
         <DialogTrigger asChild>
           <Button className="game-floating-btn" variant="ghost" size="icon" aria-label="Open game">
             <span role="img" aria-label="game">🎮</span>
@@ -806,7 +808,7 @@ function App() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-      <Dialog>
+      <Dialog onOpenChange={setGameDialogOpen}>
         <DialogTrigger asChild>
           <Button className="game-floating-btn game-floating-btn-2" variant="ghost" size="icon" aria-label="Open mole game">
             <span role="img" aria-label="mole">🔨</span>
@@ -828,7 +830,7 @@ function App() {
         </DialogContent>
       </Dialog>
 
-      <Dialog>
+      <Dialog onOpenChange={setGameDialogOpen}>
         <DialogTrigger asChild>
           <Button className="game-floating-btn game-floating-btn-3" variant="ghost" size="icon" aria-label="Open memory match">
             <span role="img" aria-label="memory">🧠</span>
@@ -850,7 +852,7 @@ function App() {
         </DialogContent>
       </Dialog>
 
-      <Dialog>
+      <Dialog onOpenChange={setGameDialogOpen}>
         <DialogTrigger asChild>
           <Button className="game-floating-btn game-floating-btn-4" variant="ghost" size="icon" aria-label="Open tic tac toe">
             <span role="img" aria-label="tic">❌</span>
@@ -872,7 +874,7 @@ function App() {
         </DialogContent>
       </Dialog>
 
-      <Dialog>
+      <Dialog onOpenChange={setGameDialogOpen}>
         <DialogTrigger asChild>
           <Button className="game-floating-btn game-floating-btn-5" variant="ghost" size="icon" aria-label="Open reaction test">
             <span role="img" aria-label="reaction">⚡</span>
@@ -894,7 +896,7 @@ function App() {
         </DialogContent>
       </Dialog>
 
-      <HeroSection />
+      <HeroSection navBarOpaque={gameDialogOpen} />
       <AboutSection />
       <SkillsSection />
       <ExperienceSection />
